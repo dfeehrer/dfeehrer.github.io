@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Derek Feehrer</title>
+	<meta name="author" content="Derek Feehrer" />
+	<meta name="description" content="Computer science student. Digital media producer. Aspiring entrepreneur." />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords"  content="derek, feehrer, wpi, entrepreneur, software engineer, westford" />
+	<meta name="Resource-type" content="Document" />
+
+
+	<!-- Bootstrap core  -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+
+
+	<script src="js/bootstrap.js"></script>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+
+	<!-- Custom Google Web Font -->
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+	<script>
+	WebFont.load({
+		google: {
+			families: ['Roboto: 100,300,400,400i,500,700,900', 'Source Code Pro: 400']
+		}
+	});
+	</script>
+
+	<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+
+	<link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css" />
+
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+	<link rel="stylesheet" href="css/fakeLoader.css">
+
+	<!-- fotorama.css & fotorama.js. -->
+	<link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet"> <!-- 3 KB -->
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script> <!-- 16 KB -->
+
+
+
+
+	<!--[if IE]>
+		<script type="text/javascript">
+			 var console = { log: function() {} };
+		</script>
+		<![endif]-->
+
+
+
+
+	</head>
+	<body>
+		<div id="fakeLoader"></div>
+
+		<div id="fullpage">
+
+			<div class="section" id="intro-section">
+				<div id="particles-js"></div>
+				<div class="container-fluid">
+
+					<div class="row">
+						<div class="col-sm-12">
+							<h1 class="wow fadeIn"  data-wow-delay="1.5s" data-wow-duration="3s">DEREK FEEHRER</h1>
+							<h3 class="wow fadeIn"  data-wow-delay="2s" data-wow-duration="2s">Computer science student. Digital media producer. Aspiring entrepreneur.<br><br></h3>
+							<div class="social-icons icons-white wow fadeIn white"  data-wow-delay="2.8s" data-wow-duration="2s">
+								<a href="https://www.linkedin.com/in/feehrer"><i class="fa fa-linkedin-square fa-2x"></i></a>
+								<a href="https://www.facebook.com/derek.feehrer"><i class="fa fa-facebook fa-2x"></i></a>
+								<a href="https://github.com/dfeehrer"><i class="fa fa-github fa-2x"></i></a>
+								<a href="https://www.youtube.com/user/derekfeehrer"><i class="fa fa-youtube-play fa-2x"></i></a>
+								
+								<a href="tel:9789445754"><i class="fa fa-phone fa-2x"></i></a>
+								<a href="mailto:dfeehrer@wpi.edu"><i class="fa fa-envelope fa-2x"></i></a>
+							</div>
+						</div>
+
+					</div>
+
+
+				</div>
+			</div>
+
+		</div>
+
+		<script type="text/javascript"  src="js/fakeLoader.js"></script>
+
+		<script type="text/javascript">
+		$("#fakeLoader").fakeLoader({
+	timeToHide:1200, //Time in milliseconds for fakeLoader disappear
+	zIndex:"999",//Default zIndex
+	spinner:"spinner6",//Options: 'spinner1', 'spinner2', 'spinner3', 'spinner4', 'spinner5', 'spinner6', 'spinner7'
+	bgColor:"#012345", //Hex, RGB or RGBA colors
+});
+		</script>
+
+		<script type="text/javascript" src="js/jquery.fullpage.extensions.min.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function() {
+
+			startFullPage();
+
+
+
+			function startFullPage(){
+				$('#fullpage').fullpage({
+					anchors: ['intro'],
+					autoScrolling: false,
+					fitToSection: false,
+					scrollingSpeed: 1000,
+					responsiveWidth: 1100,
+					responsiveHeight: 600,
+					paddingTop: '0px',
+					paddingBottom: '0px',
+
+				});
+			}
+			
+
+		});
+		</script>
+
+
+		<script src="js/particles.min.js"></script>
+		<script src="js/app.js"></script>
+
+
+		<script src="js/wow.min.js"></script>
+		<script>
+		new WOW().init();
+		</script>
+
+
+	</body>
+	</html>

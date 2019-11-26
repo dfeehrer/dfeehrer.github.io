@@ -1,0 +1,490 @@
+@trans-black:		rgba(0,0,0, 0.8);
+@trans-white:		rgba(255,255,255, 0.8);
+
+@light-black: 		rgba(0,0,0, 0.5);
+
+@frozen-white:		rgb(248, 253, 254);
+@light-blue:		#93CCEA;
+@dark-blue:			rgb(1, 35, 69);
+@orange:			rgb(255, 136, 0);
+
+
+@default-font-color: @trans-black;
+
+
+@intro-color:		@trans-black;
+@intro-bg: 			@frozen-white;
+
+@about-color:		@light-black;
+@about-bg:			@frozen-white;
+
+@software-color:	white;
+@software-bg:		@dark-blue;
+
+@video-color:		@trans-black;
+@video-bg:			@frozen-white;
+
+@marketing-color:	@trans-white;
+@marketing-bg: 		@light-blue;
+
+@featured-color:	@trans-white;
+@featured-bg: 		@light-blue;
+
+@projects-color:	@trans-black;
+@projects-bg:		@frozen-white;
+
+@travel-color:		@trans-black;
+@travel-bg:			@frozen-white;
+
+@contact-color:		@trans-white;
+@contact-bg: 		@light-blue;
+
+
+@default-horz-margin: 2%;
+@default-vert-margin: 2%;
+
+@default-font-size: 14pt;
+
+@fake: 3px;
+body{
+	font-family: 'Roboto', sans-serif;
+	font-size: @default-font-size;
+	a{
+		/*color: white;*/
+	}
+}
+
+.title{
+	font-weight: 500;
+}
+
+.theme-light-blue{
+	color: @light-blue;
+}
+
+
+.theme-dark-blue{
+	color: @dark-blue;
+}
+
+.theme-orange{
+	color: @orange;
+}
+
+.frozen-white{
+	color: @frozen-white;
+}
+
+.trans-white{
+	color: @trans-white;
+}
+
+.name{
+	font-weight: 700;
+	color: @dark-blue;
+}
+
+.material-icons{
+	font-size: 1em;
+}
+
+.container-fluid{
+	margin: @default-vert-margin @default-horz-margin;
+}
+
+.container{
+	/*margin: @default-vert-margin @default-horz-margin;
+		text-align: center;*/
+}
+#particles-js{
+    position:absolute;
+    top:0;
+    left: 0;
+    width:100%;
+    height:60vh;
+}
+
+.menuItem a i{
+	color: white;
+}
+
+.menu{
+	background-color: transparent;
+}
+
+#intro-section{
+	background: url(../img/sky-bg2.jpg) no-repeat right center;
+	background-size: cover;
+	text-align: center;
+	padding: 0px 50px;
+	z-index: -2;
+
+
+	.container-fluid{
+		margin: 5% 5%%;
+	}
+}
+
+#intro-section h1{
+	font-weight: 900;
+	color: white;
+	z-index: 999 !important;
+	position: relative;
+	font-size: 3em;
+}
+
+#intro-section h3 {
+	margin: 0;
+	font-size: 1.5em;
+	font-weight: 100;
+	letter-spacing: 0px;
+	margin-top: 10px;
+	color: white;
+	z-index: 999 !important;
+	position: relative;
+}
+
+#software-section{
+	color: @software-color;
+	background-color: @software-bg;
+	font-family: 'Source Code Pro', monospace;
+}
+
+#video-section{
+	color: @video-color;
+	background-color: @video-bg;
+	/*background: url(../img/video-bg.jpg) no-repeat right center;
+	background-size: cover;*/
+}
+
+#about-section{
+	color: @about-color;
+	background-color: @about-bg;
+	font-weight: 100;
+	font-size: 1.2em;
+	/*background: url(../img/mtn-bg-color.jpg) no-repeat right center;
+	background-size: cover;*/
+
+}
+
+#marketing-section{
+	color: @frozen-white;
+	background-color: @marketing-bg;
+}
+
+#featured-section{
+	p{
+		font-size: .85em;
+	}
+	a{
+		color: @frozen-white;
+	}
+	color: @featured-color;
+	background-color: @featured-bg;
+	background: url(../img/bridge.jpg) no-repeat right center;
+	background-size: cover;
+}
+
+#travel-section{
+	color: @travel-color;
+	background-color: @travel-bg;
+}
+
+#contact-section{
+	color: @contact-color;
+	background-color: @contact-bg;
+	a{
+		color: @contact-color;
+		text-decoration: underline;
+	}
+}
+
+#projects-section{
+	color: @projects-color;
+	background-color: @projects-bg;
+}
+
+footer{
+	font-weight: 100;
+	font-color: @frozen-white;
+}
+
+.project-logo{
+	width: 40%;
+	height: auto;
+	margin-bottom: 10px;
+}
+
+.img-circle {
+    border-radius: 50%;
+    text-shadow: 2px 2px rgba(0,0,0,1);
+    border-style: solid;
+    /*border-width: 3px; */
+    width: 150px;
+    margin-top: 20px;
+}
+
+
+.text-center{
+	text-align: center;
+}
+
+.text-left{
+	text-align: left;
+}
+
+.text-right{
+	text-align: right;
+}
+
+/*
+.subBack {
+	background: rgb(50,50,44);
+}
+
+.subPurple{
+	color: rgb(176,145, 242);
+}
+
+.subPink{
+	color: rgb(229, 64, 98);
+}
+
+.subGreen{
+	color: rgb(176, 227, 56);
+}
+
+.subYellow{
+	color: rgb(230, 214, 126);
+}
+
+.subOrange{
+	color: rgb(244, 155, 38);
+}
+*/
+#intro-section{
+	height: 100%;
+	position: relative;
+}
+
+#intro-section h1, h3,{
+	z-index: 999 !important;
+}
+
+.down-button{
+	z-index: 3;
+	font-size: 3em !important;
+	position: absolute;
+	bottom: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+
+	&:hover{
+			opacity: 0.7;
+	}
+
+	&:active{
+		opacity: 0.9;
+	}
+}
+
+#fp-nav ul li a span{
+	background-color: rgba(0,0,0,0.5);;
+}
+
+.fotorama__caption__wrap {
+    background: transparent !important;
+    color: rgba(255,255,255, 0.8);
+    text-shadow: 2px 2px 3px #000000;
+}
+
+.fotorama__caption {
+    text-align: center;
+}
+
+.software-left-col{
+	/*border-right: 1px solid white;*/
+}
+
+.skills-list{
+	list-style-type: none;
+}
+
+#fullpage{
+z-index: 0;
+}
+
+.social-icons{
+	z-index: 999 !important;
+	position: relative;
+	font-size: .8em;
+
+	a{
+
+		opacity: 0.5;
+		margin: 20px 20px;
+
+		&:hover{
+			opacity: 0.7;
+		}
+
+		&:active{
+			opacity: 0.9;
+		}
+	}
+
+}
+
+.icons-white{
+	a{
+		color: white;
+	}
+}
+
+.white{
+	color: white;
+}
+
+hr{
+	display: block;
+	width: 40px;
+	border-top: 1.5px solid @dark-blue;
+}
+
+.award{
+	background-color: #FBC02D !important;
+}
+
+.cbp-l-project-desc-title span, .cbp-l-project-details-title span{
+	font-size: 1.4em;
+	font-style: bold;
+}
+
+.cbp-l-project-desc-text p{
+	font-size: 1.4em;
+}
+
+.cbp-l-project-title{
+	font-size: 1.4em;
+	text-transform: none;
+}
+
+.cbp-l-project-subtitle{
+	font-size: 1em;
+}
+
+.cbp-l-project-details-list li{
+	font-size: 1em;
+}
+
+.cbp-l-project-desc-text > .chip {
+    display: inline-block;
+    padding: 0 25px;
+    font-size: 1.5em;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 25px;
+    background-color: #f1f1f1;
+    margin: 5px 5px;
+}
+
+.chip {
+    display: inline-block;
+    padding: 0 25px;
+    font-size: 1em;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 25px;
+    margin: 5px 5px;
+}
+
+.badge-featured{
+	background-color: @orange;
+	color: @frozen-white;
+}
+.alert-orange{
+	background-color: rgba(255, 136, 0, 0.5);
+	border-color: rgb(255, 136, 0);
+	color: @frozen-white;
+	.close{
+		color: @frozen-white;
+	}
+}
+
+.btn-white{
+
+	background-color: transparent;
+	border: 2px rgba(248, 253, 254, 0.8) solid;
+	color: rgba(248, 253, 254, 0.8);
+	font-weight: 400;
+	opacity: 0.7;
+	&:hover{
+		color: rgba(248, 253, 254, 1);
+		border-color: rgba(248, 253, 254, 1);
+	}
+
+	&:active{
+		color: rgba(248, 253, 254, 1);
+		border-color: rgba(248, 253, 254, 1);
+	}
+}
+
+.btn-dark-blue{
+
+	background-color: transparent;
+	font-weight: 400;
+	border: 2px rgba(1, 35, 69, 1) solid;
+	color: rgba(1, 35, 69, 1);
+	opacity: 0.7;
+	&:hover{
+		color: rgba(1, 35, 69, 0.8);
+		border-color: rgba(1, 35, 69, 0.8);
+	}
+
+	&:active{
+		color: rgba(1, 35, 69, 0.8);
+		border-color: rgba(1, 35, 69, 0.8);
+	}
+}
+
+.cbp-l-grid-projects-title{
+	font-size: 1em !important;
+}
+.cbp-l-grid-projects-desc{
+	font-size: .8em !important;
+}
+
+.cbp-filter-item, .cbp-filter-item-active{
+	background-color: transparent !important;
+}
+
+.cbp-filter-item{
+	border-color: @light-blue !important;
+}
+
+.cbp-filter-item-active{
+	border-color: @dark-blue !important;
+	background-color: @light-blue !important;
+}
+
+#mac{
+	width: 100%;
+}
+
+.phone{
+	height: 100vh !important;
+}
+
+#fakeLoader{
+	/*z-index: 2001 !important;*/
+	background-color: @dark-blue;
+}
+
+@media screen and (max-device-width: 480px) and (orientation: portrait){
+
+}
+
+
+

@@ -1,0 +1,109 @@
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Jaime Spin</title>
+
+
+<rel 
+
+
+	</head>
+
+	<body>
+
+		<img class="image" src="jaime.png">
+		<h1 id="title">Uh oh! You've been Jaime Spinned!</h1>
+		<h1 id="counter">0</h1>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+		<script>
+
+			$( document ).ready(function() {
+
+				$("body").find('a').filter(function () {var href = $(this).attr("href"); return href ? href.includes("000") : false}).remove();
+
+				var count = 0;
+				var element = document.getElementById("counter");
+
+				setInterval(function(){
+					count++;
+					if(count > 7 && count <14) {
+						element.innerHTML = "Sennddddd iiittttt"
+					} else if(count > 25 && count < 32) {
+						element.innerHTML = "Suhhhhhh"
+					} else if(count > 40 && count < 47) {
+						element.innerHTML = "Ohhhhhhhhh my gosh"
+					} else if(count > 52 && count < 59) {
+						element.innerHTML = "GOTTT EEEEEMM"
+					} else if(count > 70 && count < 77) {
+						element.innerHTML = "YEEEEEaHHH MAN i don't know man "
+					} else if(count > 90 && count < 97) {
+						element.innerHTML = "Yeahhhhhhooooookkkkk"
+					} else if(count > 100 && count < 107) {
+						element.innerHTML = "No Ben. No party this weekend."
+					} else if(count > 180 && count < 187) {
+						element.innerHTML = "Check the delta dash!"
+					} else {
+						element.innerHTML = count;
+					}
+				}, 1000);
+			});
+		</script>
+	</body>
+
+
+	<style>
+			.image {
+			    position: absolute;
+			    top: 30%;
+			    left: 40%;
+			    height: 400px;
+			    margin:-60px 0 0 -60px;
+			    -webkit-animation:spin 2s linear infinite;
+			    -moz-animation:spin 2s linear infinite;
+			    animation:spin 2s linear infinite;
+			}
+			@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+			@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+			@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+
+			body{
+				text-align: center;
+
+	      		animation: colorchange 300s; /* animation-name followed by duration in seconds*/
+		         /* you could also use milliseconds (ms) or something like 2.5s */
+	      		-webkit-animation: colorchange 50s; /* Chrome and Safari */
+		    }
+
+		    @keyframes colorchange
+		    {
+		      0%   {background: red;}
+		      25%  {background: yellow;}
+		      50%  {background: blue;}
+		      75%  {background: green;}
+		      100% {background: red;}
+		    }
+
+		    @-webkit-keyframes colorchange /* Safari and Chrome - necessary duplicate */
+		    {
+		      0%   {background: red;}
+		      25%  {background: yellow;}
+		      50%  {background: blue;}
+		      75%  {background: green;}
+		      100% {background: red;}
+		    }
+
+			#counter {
+				font-size: 4em;
+				font-family: 'Helvetica Neue', Helvetica, sans-serif;
+				position: absolute;
+				bottom: 50px;
+				left: 50%;
+			}
+
+			#title{
+				font-size: 4em;
+				font-family: 'Helvetica Neue', Helvetica, sans-serif;
+			}
+
+		</style>

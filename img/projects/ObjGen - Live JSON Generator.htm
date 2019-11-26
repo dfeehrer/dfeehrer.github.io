@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+   <meta charset="utf-8">
+   <title>ObjGen - Live JSON Generator</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="description" content="Live JSON generator to interactively create, edit and generate JSON objects. ObjGen uses a simple shorthand syntax to generate rich and complex JSON data.">
+   <meta name="author" content="Everett Ward Systems">
+
+   <link rel="stylesheet" href="/css/smoothness/jquery-ui-1.8.18.custom.css" type="text/css" />
+   <link rel="stylesheet" href="/js/sh/styles/shCore.css" type="text/css" />
+   <link rel="stylesheet" href="/js/sh/styles/shThemeDefault.css" type="text/css" />
+
+   <link href="/assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+   <link href="/css/bootstrap-objgen.css" rel="stylesheet">
+   <link href="/assets/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+   <!--[if lt IE 9]>
+   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+   <![endif]-->
+
+   <link rel="shortcut icon" href="/favicon.ico">
+   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-144-precomposed.png">
+   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-114-precomposed.png">
+   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-72-precomposed.png">
+   <link rel="apple-touch-icon-precomposed" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-57-precomposed.png">
+</head>
+
+<body id="jsonLiveGenerator">
+   <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+         <div class="container-fluid">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="/">
+               <img src="/images/objgen-logo-sm.png" alt="ObjGen"></img>
+            </a>
+            <div class="nav-collapse collapse">
+               <div class="pull-right">
+                  <ul class="nav">
+                     <li><a href="/live">Live Generators</a></li>
+                     <li><a id="helpLink" href="/help">Help</a></li>
+                     <li><a href="/about">About</a></li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="container-fluid">
+      <div class="row-fluid">
+         <div class="objgen-page-header span12">
+            <h1>ObjGen - Live JSON Generator</h1>
+         </div>
+      </div>
+      <div id="modelInfo" class="row-fluid">
+         <div id="savedModels" class="span6">
+            <form class="form-inline">
+               <label>Model:</label>
+               <select id="modelList"></select>
+               <button id="saveIt" class="btn" type="button">Save</button>
+            </form>
+         </div>
+                  <div id="modelStatus" class="span6 pull-right">
+            <span>Model URL: </span>
+            <a id="modelLink" href="#"></a>
+         </div>
+      </div>
+
+      <div class="row-fluid">
+         <div class="span12">
+
+            <div class="page-detail">
+               <div id="editor">
+                  <div class="page-detail-left">
+                     <div class="model-wrapper">
+                        <label class="objgen-code-label" id="modelLabel" for="model">Model Definition</label>
+                        <textarea class="objgen-code" id="model" wrap="off"></textarea>
+                        <div class="button-panel">
+                           <button id="genIt" class="btn" type="button">Gen</button>
+                           <button id="clearIt" class="btn" type="button">Clear</button>
+                           <button id="demoIt" class="btn" type="button">Demo</button>
+                           <button id="stopIt" class="btn"  type="button" style="display: none;">Stop</button>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="page-detail-right">
+                     <label class="objgen-code-label" id="modelJsonLabel" for="modelJson">JSON</label>
+                     <div class="model-wrapper">
+                        <div>
+                           <div class="objgen-syntax-wrapper" id="modelJson"></div>
+                        </div>
+                     </div>
+                     <div class="button-panel">
+                        <div id="copyCode" class="btn" style="z-index: 9998; position: absolute;">Copy</div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+         </div>
+      </div>
+
+   </div>
+
+<footer>
+   <div class="row-fluid page-footer-content">
+      <div class="span3">
+         <span>Copyright &copy; 2017 Everett Ward Systems</span>
+      </div>
+      <div class="span4">
+         <a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-via="objgen">Tweet</a>
+         <span>&nbsp;</span>
+         <a href="https://twitter.com/objgen" class="twitter-follow-button" data-show-count="false">Follow @objgen</a>
+         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      </div>
+   </div>
+</footer>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-16785369-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+
+<script src="/js/jquery-1.7.1.min.js"></script>
+<script src="/js/json2.js"></script>
+<script src="/js/jquery-ui-1.8.18.custom.min.js"></script>
+<script src="/js/form/jquery.form.js"></script>
+<script src="/js/jquery.autoresize.js"></script>
+<script src="/js/jquery.textarea.js"></script>
+<script src="/js/jquery.color.js"></script>
+<script src="/assets/bootstrap/js/bootstrap.js"></script>
+<script src="/js/sh/scripts/shCore.js"></script>
+<script src="/js/sh/scripts/shBrushJScript.js"></script>
+<script src="/js/zeroclipboard/ZeroClipboard.js"></script>
+<script src="/js/splitter.js"></script>
+<script src="/js/objgen.js"></script>
+<script src="/js/objgen.genjson.js"></script>
+
+<script type="text/javascript" language="JavaScript">
+   var pageDetail;
+   var pageDetailLeft;
+   var pageDetailRight;
+   var editor;
+   var model;
+   var modelJson;
+   var modelId = "";
+   var copyCode;
+   var indentSize = 2;
+   var indentString = "  ";
+   var liveGen = true;
+   var jsonClipboard;
+   var flashItColor = "#f0f0f0";
+   var flashItSpeed = 200;
+   var cookieName = "json.models";
+
+   function doLayout() {
+      var editorHeight = Math.floor($(window).height() * 0.7);
+      $(pageDetail).height(editorHeight + 40);
+      $(editor).height(editorHeight);
+
+      var vsplitbar = $(editor).find(".vsplitbar");
+      if(vsplitbar.length > 0) {
+        $(vsplitbar).height(editorHeight);
+      }
+
+      var taHeight = editorHeight - 90;
+      $(model).height(taHeight);
+      $(modelJson).height(taHeight);
+
+      var wrapperRight = $(pageDetailRight).find(".model-wrapper");
+      $(wrapperRight).height(taHeight);
+
+      if(vsplitbar.length > 0) {
+        var rightWidth = Math.max(0, ($(editor).width() - $(vsplitbar).position().left) - 10);
+        $(wrapperRight).css("width", rightWidth);
+      }
+
+      //$(pageDetail).removeClass("hide");
+
+      jsonClipboard.reposition();
+   }
+
+   function generate() {
+      var json = ObjGen.xJson($.trim($(model).val()), { numSpaces: indentSize });
+      var code = "<script type=\"syntaxhighlighter\" class=\"brush: jscript; toolbar: false;\"><![CDATA[ " + json + " ]]><\/script>";
+      $(modelJson).html(code);
+      SyntaxHighlighter.highlight();
+      var sh = $(".syntaxhighlighter");
+      //$(sh).css("overflow-y", "hidden");
+      $(sh).height($(sh).height() + 1); // fixes chrome scrollbar bug
+      jsonClipboard.setText(json);
+   }
+
+   function initClipboard() {
+      // clipboard copy support
+      ZeroClipboard.setMoviePath("/js/zeroclipboard/ZeroClipboard.swf");
+      jsonClipboard = new ZeroClipboard.Client();
+      jsonClipboard.setHandCursor(true);
+      jsonClipboard.glue("copyCode");
+      jsonClipboard.addEventListener("complete", function(client, text) {
+         $(modelJson).flashIt(flashItColor, flashItSpeed);
+      });
+   }
+
+   var demoText = "// Model & generate Live JSON data values\n// interactively using a simple syntax.\n// String is the default value type\nproduct = Live JSON generator\n\n// Number, Date & Boolean are also supported\n// Specify types after property names\nversion n = 3.1\nreleaseDate d = 2014-06-25\ndemo b = true\n\n// Tabs or spaces define complex values\nperson\n  id number = 12345\n  name = John Doe\n  phones\n    home = 800-123-4567\n    mobile = 877-123-1234\n\n  // Use [] to define simple type arrays\n  email[] s = jd@example.com, jd@example.org\n  dateOfBirth d = 1980-01-02\n  registered b = true\n\n  // Use [n] to define object arrays\n  emergencyContacts[0]\n    name s = Jane Doe\n    phone s = 888-555-1212\n    relationship = spouse\n  emergencyContacts[1]\n    name s = Justin Doe\n    phone s = 877-123-1212\n    relationship = parent\n\n// See our Help page for additional info\n// We hope you enjoy the tool!\n";
+   var demoIdx = 0;
+
+   function playText() {
+      if($.browser.msie) {
+         $(model).val(demoText.replace(/\n/, " \r"));
+      } else if(demoIdx < demoText.length && $("#stopIt").data("stopped") !== true) {
+         var c = demoText[demoIdx++];
+         $(model).append(c);
+         generate();
+
+         if(c === '\n') {
+            delay = 250;
+         }
+         else if(c === ' ') {
+            delay = 50;
+         } else {
+            delay = 25;
+         }
+
+         window.setTimeout(playText, delay);
+      }
+   }
+
+   function doSaveModel() {
+      generate();
+      var modelObj = new Object();
+      modelObj["id"] = "";
+      modelObj["type"] = "json";
+      modelObj["text"] = $(model).val();
+
+      var modelLink = $("#modelLink").attr("href");
+      var ajaxType;
+
+      if(modelLink.length > 0 && modelLink !== "#") {
+         ajaxType = "PUT";
+      } else {
+         ajaxType = "POST";
+         modelLink = "http://www.objgen.com/json/models";
+      }
+
+      $.ajax({
+         url: modelLink,
+         type: ajaxType,
+         contentType: "application/json; charset=utf-8",
+         data: JSON.stringify(modelObj),
+         success: function(saved) {
+            var href = modelLink;
+            modelId = saved.id;
+            if(ajaxType === "POST") {
+               href = href + '/' + modelId;
+            }
+            $("#modelStatus").show();
+            $("#modelLink").attr("href", href);
+            $("#modelLink").text(href);
+
+            var cookieVal = ObjGen.readCookie(cookieName, '');
+            if(cookieVal.match(href) == null) {
+               cookieVal += ' ';
+               cookieVal += href;
+               ObjGen.createCookie(cookieName, cookieVal, 3650);
+
+               var modelList = $("#modelList");
+               var h = '<option value="' + href + '" selected="selected">' + modelId + '</option>';
+               $(modelList).append(h);
+            }
+         },
+         error: function(errorInfo, errorText1, errorText2) {
+            alert("Unable to save model definition. Status: " + errorInfo.status + "; " + errorInfo.statusText);
+         }
+      });
+   }
+
+   function initModelList() {
+      var cookieVal = ObjGen.readCookie(cookieName, '');
+      var modelList = $("#modelList");
+      var h = '<option value="/json">[New]</option>';
+      if(cookieVal.length > 0) {
+         models = cookieVal.split(' ');
+         for(i in models) {
+            var path = models[i];
+            var parts = path.split('/');
+            var displayId = parts.length > 0 ? parts[parts.length - 1] : path;
+            if(displayId !== "undefined") {
+               h += '<option value="' + path + '"';
+               h += '>' + displayId + '</option>';
+            }
+         }
+      }
+      $(modelList).html(h);
+      $(modelList).change(function() {
+         window.location.href = $(this).val();
+      });
+   }
+
+   $(document).ready(function() {
+      pageDetail = $(".page-detail");
+      pageDetailLeft = $(".page-detail-left");
+      pageDetailRight = $(".page-detail-right");
+      editor = $("#editor");
+      model = $("#model");
+      modelJson = $("#modelJson");
+      copyCode = $("#copyCode");
+
+      var helpUrl = $("#helpLink").attr("href");
+      $("#helpLink").attr("href", helpUrl + "/json");
+      if(!$.browser.msie) {
+         $("textarea").tabby({tabString: indentString});
+      }
+
+      $(model).bind("keyup change", function() {
+         if(liveGen) {
+            generate();
+         }
+      });
+
+      $("#clearIt").click(function() {
+         $(model).val("");
+         generate();
+         $(model).flashIt(flashItColor, flashItSpeed);
+         $(modelJson).flashIt(flashItColor, flashItSpeed);
+         $("#stopIt").text("Play");
+         $("#stopIt").data("stopped", true);
+         demoIdx = 0;
+      });
+
+      $("#genIt").click(function() {
+         generate();
+         $(model).flashIt(flashItColor, flashItSpeed);
+         $(modelJson).flashIt(flashItColor, flashItSpeed);
+      });
+
+      $("#saveIt").click(function() {
+         doSaveModel();
+      });
+
+      $("#demoIt").click(function() {
+         window.open("/json?demo=true", "_objgdemo");
+      });
+
+      $("#stopIt").click(function() {
+         var stopped = $(this).data("stopped");
+         if(stopped !== true) {
+            $(this).text("Play");
+            $(this).data("stopped", true);
+         } else {
+            $(this).html("Stop");
+            $(this).data("stopped", false);
+            playText();
+         }
+      });
+
+      initModelList();
+      initClipboard();
+
+      doLayout();
+      $(editor).splitter({
+         resizeToWidth: false
+      });
+
+      $(window).resize(function() {
+         doLayout();
+      });
+
+      $(editor).trigger("resize", [ Math.floor($(window).width() * 0.4) ]);
+
+      if($(window).getQueryParamVal("demo", false)) {
+         $("#demoIt").hide();
+         $("#stopIt").show();
+         playText();
+      } else {
+         $(model).focus();
+      }
+
+      generate();
+   });
+</script>
+
+</html>
